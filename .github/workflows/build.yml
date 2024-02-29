@@ -50,8 +50,6 @@ jobs:
 
       - name: Rename APKs
         run: |
-          ls app/build/outputs/apk/mainline/release
-          ls app/build/outputs/apk/dev/release
           mv app/build/outputs/apk/mainline/release/app-mainline-release.apk strato-${{ github.event.number }}-release.apk
 
       - name: Upload Release APK
