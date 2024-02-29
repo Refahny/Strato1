@@ -47,3 +47,13 @@ jobs:
           CMAKE_CXX_COMPILER_LAUNCHER: "ccache"
           CCACHE_COMPILERCHECK: "string:${{ env.NDK_VERSION }}" # Use NDK version instead of compiler timestamp
         run: ./gradlew --no-daemon --stacktrace --build-cache --parallel --configure-on-demand assembleMainlineRelease
+
+      - name: Rename APKs
+        run: |
+          mv app/build/outputs/apk/dev/release/app-mainline-release.apk strato-${{ github.event.number }}-release.apk
+
+      - name: Upload Release APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: strato-${{ github.event.number }}-release.apk
+          path: strato-${{ github.event.number }}-release.apk
