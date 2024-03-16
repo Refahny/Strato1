@@ -243,6 +243,9 @@ add_library(skyline SHARED
         ${source_DIR}/skyline/vfs/npdm.cpp
         ${source_DIR}/skyline/vfs/nca.cpp
         ${source_DIR}/skyline/vfs/ticket.cpp
+        ${source_DIR}/skyline/vfs/cnmt.cpp
+        ${source_DIR}/skyline/vfs/bktr.cpp
+        ${source_DIR}/skyline/vfs/patch_manager.cpp
         ${source_DIR}/skyline/services/serviceman.cpp
         ${source_DIR}/skyline/services/base_service.cpp
         ${source_DIR}/skyline/services/sm/IUserInterface.cpp
@@ -397,4 +400,4 @@ target_include_directories(skyline PRIVATE ${source_DIR}/skyline)
 target_compile_options(skyline PRIVATE -Wall -Wno-unknown-attributes -Wno-c++20-extensions -Wno-c++17-extensions -Wno-c99-designator -Wno-reorder -Wno-missing-braces -Wno-unused-variable -Wno-unused-private-field -Wno-dangling-else -Wconversion -fsigned-bitfields)
 
 target_link_libraries(skyline PRIVATE shader_recompiler audio_core)
-target_link_libraries_system(skyline android perfetto fmt lz4_static tzcode vkma mbedcrypto opus Boost::intrusive Boost::container Boost::preprocessor range-v3 adrenotools tsl::robin_map)
+target_link_libraries_system(skyline android perfetto fmt lz4_static tzcode vkma mbedcrypto opus Boost::intrusive Boost::container Boost::preprocessor Boost::regex range-v3 adrenotools tsl::robin_map)
